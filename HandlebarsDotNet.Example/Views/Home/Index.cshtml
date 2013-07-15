@@ -1,0 +1,30 @@
+﻿@using HandlebarsDotNet.Example
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <div id="main"></div>
+    <div id="sub"></div>
+    
+    <script src="/assets/js/libs/jquery.js"></script>
+    <script src="/assets/js/libs/handlebars.runtime.js"></script>
+    
+    @Html.RenderHandlebarsTemplates("~/bundle/js/app/templates/")
+
+    <script>
+        $(function () {
+            var context = {
+                exampleTitle: "Hello World",
+                exampleText: "This is rendered using a handlebars template precompiled by an ASP.NET BundleTransform."
+            };
+
+            // The "templates" dictionary name can be configured when instantiating the HandlebarsBundleTransform (see Global.asax).
+            // The dictionary keys/object properties follow the directory structure of the rootDirectory (also specified on instantiation of HandlebarsBundleTransform).
+            $('#main').html(templates['example'](context));
+            $('#sub').html(templates['sub/another'](context));
+        });
+    </script>
+</body>
+</html>
