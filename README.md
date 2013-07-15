@@ -30,19 +30,10 @@ The first constructor parameter is the name of the JavaScript variable on which 
 The second constructor parameter is a boolean indicating whether or not the compiled views should be minified (default = false).
 The third constructor parameter is the root virtual path where the templates are stored in your project.
 
-In your ASP.NET MVC project, add an extension method for rendering the script tag on the page:
-
-```csharp
-public static IHtmlString RenderHandlebarsTemplates(this HtmlHelper helper, string path = "", bool noTemplateName = false)
-{
-    return Scripts.Render(path);
-}
-```
-
-Add the render function to your view:
+In your ASP.NET view, render the templates scripts to the page:
 
 ```
-@Html.RenderHandlebarsTemplates("~/bundle/js/app/templates/")
+@Scripts.Render("~/bundle/js/app/templates/")
 ```
 
 And finally, a variable with the name you provided in the constructor will be available in script. Note that the dictionary keys/property names follow the directory structure of the rootDirectory (also supplied in the `HandlebarsBundleTransform` constructor).
