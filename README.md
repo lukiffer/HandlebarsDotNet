@@ -28,7 +28,7 @@ public class MvcApplication : System.Web.HttpApplication
 
 - The first constructor parameter is the name of the JavaScript variable on which you wish to store the templates (default = "templates").
 - The second constructor parameter is a boolean indicating whether or not the compiled views should be minified (default = true).
-- The third constructor parameter is the root virtual path where the templates are stored in your project (default = "/")
+- The third constructor parameter is the root virtual path where the templates are stored in your project (default = "/").
 
 In your ASP.NET view, render the templates scripts to the page:
 
